@@ -1,0 +1,576 @@
+//Author: Mirko Riazzoli
+//*************************************************************************************************************************************************************************************************************************************
+//Version 1.0
+//Release date: 04 September 2018
+
+    /*This file is part of GeomJLib.
+GeoCalc is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+GeoCalc is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with GeoCalc. If not, see <http://www.gnu.org/licenses/>.*/
+//*************************************************************************************************************************************************************************************************************************************
+//Circular truncated cone
+    public static double lareactc(double radius1, double radius2, double height) {//LateralE ARE, radius1 radius great, radius2 radius little
+        double area = Math.PI * (radius1 + radius2) * Math.sqrt(Math.pow((radius1 - radius2), 2) + Math.pow(height, 2));
+        return area;
+    }
+
+    public static double surctc(double radius1, double radius2, double height) {//Surface
+        double surface = Math.PI * (radius1 + radius2) * Math.sqrt(Math.pow((radius1 - radius2), 2) + Math.pow(height, 2)) + Math.PI * (Math.pow(radius1, 2) + Math.pow(radius2, 2));
+        return surface;
+    }
+
+    public static double volctc(double radius1, double radius2, double height) {
+        double volume = 1 / 3 * Math.PI * (Math.pow(radius1, 2) + radius1 * radius2 + Math.pow(radius2, 2)) * height;
+        return volume;
+    }
+//Cone
+
+    public static double arbcon(double radius) {//Area
+        double area = Math.PI * Math.pow(radius, 2);
+        return area;
+    }
+
+    public static double latarcon(double radius, double length) {//Lateral area
+        double area = Math.PI * radius * length;
+        return area;
+    }
+
+    public static double surfcon(double radius, double length) {//Surface
+        double surface = Math.PI * radius * (radius + length);
+        return surface;
+    }
+
+    public static double volcon(double radius, double height) {//Volume
+        double volume = (Math.PI * Math.pow(radius, 2) * height) / 3;
+        return volume;
+    }
+
+    public static double lencon(double latarea, double radius) {//Lenght Lateral
+        double length = latarea / (Math.PI * radius);
+        return length;
+    }
+
+    public static double radcon(double latarea, double slength) {//slength:  Slant Length
+        double radius = latarea / (Math.PI * slength);
+        return radius;
+    }
+
+    public static double hcon(double volume, double radius) {
+        double height = 3 * volume / Math.PI * Math.pow(radius, 2);
+        return height;
+    }
+
+    public static double radconv(double volume, double height) {//Radius by Volume
+        double radius = Math.sqrt(3 * volume / Math.PI * height);
+        return radius;
+    }
+//Cube
+
+    public static double arfacub(double side) {//Area face from side
+        double area = Math.pow(side, 2);
+        return area;
+    }
+
+    public static double arlatcub(double side) {//Lateral area
+        double area = Math.pow(side, 2) * 4;
+        return area;
+    }
+
+    public static double surcub(double side) {//Surface
+        double surface = Math.pow(side, 2) * 6;
+        return surface;
+    }
+
+    public static double volcu(double side) {//Volume
+        double volume = Math.pow(side, 3);
+        return volume;
+    }
+
+    public static double sidecu(double arlatcub) {//Side from Lateral area
+        double side = Math.sqrt(arlatcub / 4);
+        return side;
+    }
+
+    public static double scube(double totsup) {//Side from Surface
+        double side = Math.sqrt(totsup / 6);
+        return side;
+    }
+
+    public static double diacub(double side) {//Diagonal
+        double diagonal = side * Math.sqrt(3);
+        return diagonal;
+    }
+
+    public static double sicuv(double volume) {//Side
+        double side = Math.pow(volume, (double) 1 / 3);
+        return side;
+    }
+
+    public static double radsci(double side) {//Radius of circumscribed sphere
+        double radius = Math.sqrt(3) / 2 * side;
+        return radius;
+    }
+
+    public static double radspta(double side) {//Radius of sphere tangent to edges
+        double radius = side / Math.sqrt(2);
+        return radius;
+    }
+
+    public static double radcin(double side) {//Radius of inscribed sphere
+        double radius = side / 2;
+        return radius;
+    }
+//Cylinder
+
+    public static double scyl(double radius, double height) {//Surface
+        double surface = 2 * Math.PI * radius * (radius + height);
+        return surface;
+    }
+
+    public static double volcy(double radius, double height) {//Volume
+        double volume = Math.PI * Math.pow(radius, 2) * height;
+        return volume;
+    }
+//Dodecahedron
+
+    public static double surdode(double side) {
+        double surface = 3 * (Math.sqrt(25 + 10 * Math.sqrt(5))) * Math.pow(side, 2);
+        return surface;
+    }
+
+    public static double voldode(double side) {
+        double volume = (15 + 7 * Math.sqrt(5)) * Math.pow(side, 3) / 4;
+        return volume;
+    }
+//Ellipsoid
+
+    public static double ellivol(double radius1, double radius2, double radius3) {
+        double volume = 4 / 3 * Math.PI * radius1 * radius2 * radius3;
+        return volume;
+    }
+
+    public static double supell(double radius1, double radius2) {
+        double surface = 2 * Math.PI * radius1 * radius2;
+        return surface;
+    }
+//Prolate Spheroid, funzione approssimativa
+
+    public static double supellpr(double radius1, double radius2, double radius3) {
+        double arccos = Math.acos(radius3 / radius1);
+        double surface = 2 * Math.PI * (Math.pow(radius3, 2) + radius1 * radius3 * (arccos / Math.sin(arccos)));
+        return surface;
+    }
+//Oblate Spheroid
+
+    public static double supellobl(double radius1, double radius3) {//radius1 a, radius3 c
+        double arccos = Math.acos(radius3 / radius1);
+        double arctang = Math.atan(Math.sin(arccos));
+        double surface = 2 * Math.PI * (Math.pow(radius1, 2) + Math.pow(radius3, 2) * (arctang / Math.sin(arccos)));
+        return surface;
+    }
+//scalene ellipsoid, funzione approssimativa
+
+    public static double supellsca(double radius1, double radius2, double radius3) {
+        double p = 1.6075;
+        double number = (Math.pow(radius1, p) * Math.pow(radius2, p) + Math.pow(radius1, p) * Math.pow(radius3, p) + Math.pow(radius2, p) * Math.pow(radius3, p)) / 3;
+        double surface = 4 * Math.PI * (Math.pow(number, 1 / p));
+
+        return surface;
+    }
+//Ellipsoidal cap
+
+    public static double voelcap(double a, double b, double c, double h) {
+        double volume = ((Math.PI * a * b) / 3 * Math.pow(c, 2)) * Math.pow(h, 2) * (3 * c - h);
+        return volume;
+    }
+
+    public static double arbelcap(double a, double b, double c, double h) {
+        double volume = ((Math.PI * a * b) / h * Math.pow(c, 2)) * h * (2 * c - h);
+        return volume;
+    }
+
+//Frustum
+    public static double volfru(double area1, double area2, double height) {
+        double volume = height / 3 * (area1 + area2 + Math.sqrt(area1 * area2));
+        return volume;
+    }
+//Hollow cylinder
+
+    public static double volhcyl(double radius1, double radius2, double height) {
+        double volume = Math.PI * height * (Math.pow(radius1, 2) - Math.pow(radius2, 2));
+        return volume;
+    }
+
+    public static double larhcyl(double radius1, double radius2, double height) {
+        double area = 2 * Math.PI * height * (radius1 + radius2);
+        return area;
+    }
+
+    public static double surrhcyl(double radius1, double radius2, double height) {
+        double area = 2 * Math.PI * height * (radius1 + radius2) + 2 * Math.PI * (Math.pow(radius1, 2) - Math.pow(radius2, 2));
+        return area;
+    }
+//Hollow sphere
+
+    public static double vohosp(double radin, double radout) {// radin raius internal sphere, radout radius out out sphere
+        double volume = (4 * Math.PI) / 3 * (Math.pow(radout, 3) - Math.pow(radin, 3));
+        return volume;
+    }
+
+    public static double vohospdia(double diain, double diaout) {// diain diameter internal sphere, diaout diameter out out sphere
+        double volume = (Math.PI / 6) * (Math.pow(diaout, 3) - Math.pow(diain, 3));
+        return volume;
+    }
+//Icosahedron
+
+    public static double icosur(double side) {
+        double surface = 5 * side * Math.sqrt(3);
+        return surface;
+    }
+
+    public static double icovol(double side) {
+        double volume = (3 + Math.sqrt(5)) * 5 * side / 12;
+        return volume;
+    }
+//Obelisk
+
+    public static double volob(double height, double sideb1, double sideb2, double sideh1, double sideh2) {
+        double volume = (height / 6) * (sideb1 * sideh2 + sideh1 * sideb1 + 2 * (sideh1 * sideh2 + sideb1 * sideb1));
+        return volume;
+    }
+//Oblique circular cylinder
+
+    public static double volobcy(double radius, double height1, double height2) {
+        double volume = Math.PI * Math.pow(radius, 2) * ((height1 + height2) / 2);
+        return volume;
+    }
+
+    public static double ltarobcy(double radius, double height1, double height2) {//Lateral area
+        double area = Math.PI * radius * (height1 + height2);
+        return area;
+    }
+
+    public static double supobcy(double radius, double height1, double height2) {//Lateral area
+        double surface = Math.PI * radius * (height1 + height2) + Math.PI * radius * (radius + Math.sqrt(Math.pow(radius, 2) + Math.pow((height1 + height2) / 2, 2)));
+        return surface;
+    }
+//Octahedron
+
+    public static double superface(double side) {
+        double area = 2 * side * Math.sqrt(3);
+        return area;
+    }
+
+    public static double volume(double side) {
+        double volume = (side * Math.sqrt(2)) / 3;
+        return volume;
+    }
+
+    public static double height(double side) {
+        double height = side * Math.sqrt(2);
+        return height;
+    }
+//Paraboloid
+
+    public static double volparb(double a, double b, double height) {//Volume
+        double volume = 1 / 2 * Math.PI * a * b * height;
+        return volume;
+    }
+//Parallelepiped
+
+    public static double volpar(double side1, double side2, double side3) {//Volume
+        double volume = side1 * side2 * side3;
+        return volume;
+    }
+
+    public static double hpa(double volume, double areabase) {//Height FROM Volume AND Area BASE
+        double height = volume / areabase;
+        return height;
+    }
+
+    public static double hepals(double latarea, double perimeter) {//Height
+        double height = latarea / perimeter;
+        return height;
+    }
+
+    public static double hepald(double angle, double side) {//Height
+        double height = side * Math.cos(Math.toRadians(angle));
+        return height;
+    }
+
+    public static double diapara(double side1, double side2, double height) {
+        double diagonal = Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2) + Math.pow(height, 2));
+        return diagonal;
+    }
+
+    public static double diaparadb(double diagonalbase, double height) {
+        double diagonal = Math.sqrt(Math.pow(diagonalbase, 2) + Math.pow(height, 2));
+        return diagonal;
+    }
+//Partial circular cone
+
+    public static double ancirco(double a, double r) {
+        double k = 1 - (a / r);
+        double angle = 2 * Math.pow(Math.cos(k), -1);
+        return angle;
+    }
+
+    public static double chordco(double a, double r) {
+        double k = 1 - (a / r);
+        double chord = 2 * r * Math.sqrt(1 - k / 2);
+        return chord;
+    }
+
+    public static double circarc(double a, double r) {//L in figure
+        double cirar = ancirco(a, r) * r;
+        return cirar;
+    }
+
+    public static double areab(double a, double r) {//Area base
+        double area = (ancirco(a, r) / 2) * Math.pow(r, 2) - r * (1 - (a / r)) * chordco(a, r);
+        return area;
+    }
+
+    public static double areal(double a, double r, double height) {
+        double area = r * Math.sqrt(Math.pow(r, 2) + Math.pow(height, 2)) * (Math.PI / 2 - Math.pow(Math.sin(1 - (a / r)), -1) - (1 - (a / r)) * Math.sqrt(1 - Math.pow(1 - (a / r), 2)));
+        return area;
+    }
+
+    public static double areah(double a, double r, double height) {//Sh figure
+        double area = height * r * (Math.sqrt(1 - Math.pow(1 - (a / r), 2)) - Math.pow(1 - (a / r), 2) * Math.pow(Math.cosh(1 / (1 - (a / r))), -1));
+        return area;
+    }
+
+    public static double volpcc(double a, double r, double height) {
+        double k = 1 - (a / r);
+        double volume = (height * Math.pow(r, 2) / 3) * ((Math.PI / 2) - 2 * k * Math.sqrt(1 - Math.pow(k, 2)) - Math.pow(Math.sin(k), -1) + Math.pow(k, 3) * Math.pow(Math.cosh(1 / k), -1));
+        return volume;
+    }
+//Partial hemisphere or Spherical segment
+
+    public static double volpahem(double radius, double height) {
+        double volume = 1 / 3 * Math.PI * height * (3 * Math.pow(radius, 2) - Math.pow(height, 2));
+        return volume;
+    }
+
+    public static double larpahem(double radius, double height) {//Lateral area
+        double area = 2 * Math.PI * radius * height;
+        return area;
+    }
+
+    public static double surpahem(double radius, double height) {//
+        double surface = 2 * Math.PI * radius * height + Math.PI * (2 * Math.pow(radius, 2) - Math.pow(height, 2));
+        return surface;
+    }
+
+    public static double radpahem(double radius, double height) {//Radius UPPER CIRCLE
+        double radcir = Math.sqrt(Math.pow(radius, 2) - Math.pow(height, 2));
+        return radcir;
+    }
+
+    public static double arup(double radius, double height) {//Area UPPER CIRCLE
+        double area = Math.PI * (Math.pow(radius, 2) - Math.pow(height, 2));
+        return area;
+    }
+//Partial right cylinder
+
+    public static double arlprcy(double radius, double height) {
+        double angle = 2 * Math.pow(Math.cos(1 - (height / radius)), -1);
+        double areal = (angle / 2) * Math.pow(radius, 2) - (radius - height) * Math.sqrt(height * (2 - height));
+        return areal;
+    }
+
+    public static double volprcy(double radius, double height, double wide) {
+        double volume = arlprcy(radius, height) / wide;
+        return volume;
+    }
+
+    public static double arbprcy(double radius, double height, double wide) {//Area base
+        double area = radius * (2 * Math.pow(Math.cos(1 - (height / radius)), -1)) * wide;
+        return area;
+    }
+
+    public static double arsuprcy(double radius, double height, double wide) {//Area superior T
+        double area = 2 * wide * Math.sqrt(height * (2 - height));
+        return area;
+    }
+//Partial sphere
+
+    public static double radbpars(double radius, double height) {
+        double c = Math.sqrt(height * (2 * radius - height));
+        return c;
+    }
+
+    public static double volpars(double rbase, double height) {// rbase c
+        double volume = Math.PI / 6 * height * (3 * Math.pow(rbase, 2) + Math.pow(height, 2));
+        return volume;
+    }
+
+    public static double surpars(double rbase, double height) {// rbase c
+        double surface = Math.PI * (Math.pow(rbase, 2) + Math.pow(height, 2)) + Math.PI * Math.pow(rbase, 2);
+        return surface;
+    }
+
+    public static double arbpars(double rbase) {// rbase c
+        double area = Math.PI * Math.pow(rbase, 2);
+        return area;
+    }
+//Polyhedro
+
+    public static double volpo4(double side) {//Volume POLYGON 4 SIDE
+        double volume = (Math.sqrt(2) / 12) * Math.pow(side, 3);
+        return volume;
+    }
+
+    public static double radin(double volume, double surface) {//Radius circonference inscritte in polyghon
+        double radius = 3 * volume / surface;
+        return radius;
+    }
+
+    public static double radout(double volume, double surface, double side, int nface) {//Radius circonference inscritte in polyghon
+        double radius = Math.sqrt(Math.pow(radin(volume, surface), 2) + (side / 2 * Math.pow(Math.sin(Math.PI / nfacer(nface)), 2)));
+        return radius;
+    }
+
+    public static int nfacer(int numface) {//Constant for Radius
+        switch (numface) {
+            case 4:
+            case 8:
+            case 20:
+                return 3;
+            case 6:
+                return 4;
+            case 12:
+                return 5;
+        }
+        return 0;
+    }
+//Spherical cap
+
+    public static double surspcap(double radius, double height) {//Radius sphere, no cap
+        double surface = 2 * Math.PI * radius * height;
+        return surface;
+    }
+
+    public static double arbspcap(double radius, double height) {//Area base
+        double value = (1 - height / radius);
+        double area = Math.PI * Math.pow(radius, 2) * (1 - Math.pow(value, 2));
+        return area;
+    }
+
+    public static double radsfcap(double radiusc, double height) {//Radius spherical cap
+        double radius = Math.sqrt(height * (2 * radiusc - height));
+        return radius;
+    }
+
+    public static double volspfcap(double radius, double height) {//Volume
+        double volume = Math.PI * Math.pow(height, 2) * (radius - height / 3);
+        return volume;
+    }
+
+    public static double radsf(double radiussfhere, double height) {//Radius sphere
+        double radius = (Math.pow(radiussfhere, 2) + Math.pow(height, 2)) / 2 * height;
+        return radius;
+    }
+//Sphere
+
+    public static double sursp(double radius) {
+        double surface = 4 * Math.PI * Math.pow(radius, 2);
+        return surface;
+    }
+
+    public static double volsp(double radius) {
+        double surface = (4 * Math.PI * Math.pow(radius, 3)) / 3;
+        return surface;
+    }
+
+    public static double radsp(double surface) {
+        double radius = Math.sqrt(surface / 4 * Math.PI);
+        return radius;
+    }
+
+    public static double radspv(double volume) {//Radius by vomune
+        double radius = Math.pow((3 * volume / 4 * Math.PI), (double) 1 / 3);
+        return radius;
+    }
+//Square pyramid
+
+    public static double susqpyr(double area, double perimeter, double slength) {//slength:  Slant Length
+        double surface = area + 0.5 * perimeter * slength;
+        return surface;
+    }
+
+    public static double volsqpyr(double area, double height) {//slength: Slant Length
+        double volume = 1 / 3 * area * height;
+        return volume;
+    }
+//Torus
+
+    public static double torarea(double radius, double radiustorus) {//Radius: radius small circle; radiustorus radius bigger circle
+        double area = 4 * Math.pow(Math.PI, 2) * radius * radiustorus;
+        return area;
+    }
+
+    public static double torvol(double radius, double radiustorus) {//Radius: radius small circle; radiustorus radius bigger circle
+        double volume = 2 * Math.pow(Math.PI, 2) * radiustorus * Math.pow(radius, 2);
+        return volume;
+    }
+//Triangular prism
+
+    public static double trparea(double areabase, double height, double perimeter) {
+        double area = areabase * 2 + height * perimeter;
+        return area;
+    }
+
+    public static double trpvol(double areabase, double height) {
+        double volume = areabase * height;
+        return volume;
+    }
+//Triangular pyramid
+
+    public static double artrpy(double side) {
+        double area = side * Math.sqrt(3);
+        return area;
+    }
+
+    public static double voltrpy(double side) {
+        double volume = Math.pow(side, 3) * (Math.sqrt(2) / 12);
+        return volume;
+    }
+
+    public static double htrpy(double side) {
+        double height = (side * Math.sqrt(6)) / 3;
+        return height;
+    }
+//Truncated square pyramid
+
+    public static double voltspy(double a, double b) {
+        double volume = 1 / 3 * (Math.pow(a, 2) + a * b + Math.pow(b, 2));
+        return volume;
+    }
+
+    public static double ltatspy(double a, double b, double h) {//Lateral area
+        double area = 2 * (a + b) * Math.sqrt(Math.pow(((a - b) / 2), 2) + Math.pow(h, 2));
+        return area;
+    }
+
+    public static double surtspy(double a, double b, double h) {
+        double surface = 2 * (a + b) * Math.sqrt(Math.pow(((a - b) / 2), 2) + Math.pow(h, 2)) + Math.pow(a, 2) + Math.pow(b, 2);
+        return surface;
+    }
+//Wedge
+
+    public static double volwed(double b, double c, double height, double a) {
+        double volume = (b * height) / 6 * (2 * a + c);
+        return volume;
+    }
+
+    public static double larwed(double b, double c, double height, double a) {
+        double area = (a + c) / 2 * Math.sqrt(4 * Math.pow(height, 2) + Math.pow(b, 2)) + b * Math.sqrt(Math.pow(height, 2) + Math.pow(a - c, 2));
+        return area;
+    }
+
+    public static double surwed(double b, double c, double height, double a) {
+        double surface = (a + c) / 2 * Math.sqrt(4 * Math.pow(height, 2) + Math.pow(b, 2)) + b * Math.sqrt(Math.pow(height, 2) + Math.pow(a - c, 2)) + a * b;
+        return surface;
+    }
