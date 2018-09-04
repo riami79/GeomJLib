@@ -1,3 +1,12 @@
+//Author: Mirko Riazzoli
+
+//Version 1.0 Release 
+
+/*This file is part of GeoCalc.
+GeoCalc is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+GeoCalc is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with GeoCalc. If not, see <http://www.gnu.org/licenses/>.*/
+
 public static double areaan(double radius1, double radius2) {//Area
         double area = Math.PI * (Math.pow(radius2, 2) - Math.pow(radius1, 2));
         return area;
