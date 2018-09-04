@@ -277,11 +277,41 @@ public static double areaan(double radius1, double radius2) {//Area
     }
     Star of Lakshmi
 
-    public static double stlakar(double side 
-        po) {
-        double area = 2 * (Math.sqrt() - 1) * Math.pow(a, 2);
+        public static double stlakar(double a) {//Area
+        double area = 2 * (2 - Math.sqrt(2)) * Math.pow(a, 2);
         return area;
     }
+
+    public static double sideslak(double b, double c) {//Edge length square
+        double length = b + 2 * c;
+        return length;
+    }
+
+    public static double sideocta(double a, double b) {//Edge length octagon
+        double length = (Math.sqrt(b) - 1) * a;
+        return length;
+    }
+
+    public static double sislak(double a) {//Edge length star
+        double length = (2 - Math.sqrt(2)) * a / 2;
+        return length;
+    }
+
+    public static double chordslak(double c) {//Chord
+        double chord = 2 * c * Math.cos(Math.toRadians(22.5));
+        return chord;
+    }
+
+    public static double chordslakpi(double c) {//Chord
+        double chord = 2 * c * Math.cos(Math.PI / 8);
+        return chord;
+    }
+
+    public static double perslak(double c) {//Perimeter
+        double perimeter = 16 * c;
+        return perimeter;
+    }
+    
 //Quadrilateral inscribed in a circle
 
     public static double aquincir(double side1, double side2, double side3, double side4) {//Area
@@ -349,7 +379,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return area;
     }
 
-    public static double spolreg(double area, double nside) {//Side BY Area AND NUMBER OF Side
+    public static double spolreg(double area, double nside) {//Side
         double side = Math.sqrt(4 * area * Math.tan(Math.toRadians(Math.PI / nside)) / nside);
         return side;
     }
@@ -510,7 +540,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return 0;
     }
 
-    public static double areapoligon(double side, int numberside) {//Area REGULAR polygon
+    public static double areapoligon(double side, int numberside) {//Area
         double area;
         switch (numberside) {
             case 5:
@@ -720,47 +750,47 @@ public static double areaan(double radius1, double radius2) {//Area
         return area;
     }
 
-    public static double decapothem(double radius) {//Apothem OF DECAGON
+    public static double decapothem(double radius) {//Apothem of decagon
         double apothem = radius * ((Math.sqrt(10) + 2 * Math.sqrt(5)) / 4);
         return apothem;
     }
 
-    public static double decarea(double radius) {//Area OF DECAGON
+    public static double decarea(double radius) {//Area of decagon
         double area = Math.pow(radius, 2) * ((5 * Math.sqrt(10 - 2 * Math.sqrt(5))) / 4);
         return area;
     }
 
-    public static double sidedodec(double radius) {//Side OF DODECAGON
+    public static double sidedodec(double radius) {//Side of dodecagon
         double side = radius * ((Math.sqrt(6) - Math.sqrt(2)) / 2);
         return side;
     }
 
-    public static double apododec(double radius) {//Apothem OF DODECAGON
+    public static double apododec(double radius) {//Apothem of dodecagon
         double apothem = radius * ((Math.sqrt(6) + Math.sqrt(2)) / 4);
         return apothem;
     }
 
-    public static double areadodec(double radius) {//Area OF DODECAGON
+    public static double areadodec(double radius) {//Area of dodecagon
         double area = 3 * Math.pow(radius, 2);
         return area;
     }
 
-    public static double radiuspol(double side, int numside) {//Radius circle CIRCOSCRIPTE
+    public static double radiuspol(double side, int numside) {//Radius circle circoscripte
         double radius = side / (2 * Math.sin(Math.toRadians(180 / numside)));
         return radius;
     }
 
-    public static double apopolside(double side, int numside) {//Apothem circle CIRCOSCRIPTE  FROM Side AND NUMSide
+    public static double apopolside(double side, int numside) {//Apothem circle circoscripte
         double apothem = side / 2 * (Math.tan(Math.toRadians(90 - 180 / numside)));
         return apothem;
     }
 
-    public static double apopolradius(double radius, double side, int numside) {//Apothem circle CIRCOSCRIPTE FROM Radius AND NUMSide
+    public static double apopolradius(double radius, double side, int numside) {//Apothem circle circoscripte
         double apothem = radius * Math.cos(Math.toRadians(180 / numside));
         return apothem;
     }
 
-    public static double sidepoligonapo(double area, int numberside) {//Side REGULAR polygon BY Apothem
+    public static double sidepoligonapo(double area, int numberside) {//Side
         double side;
         switch (numberside) {
 
@@ -911,12 +941,12 @@ public static double areaan(double radius1, double radius2) {//Area
         return 0;
     }
 
-    public static double constantareapol(double area, double side) {//CONSTANT Area polygon
+    public static double constantareapol(double area, double side) {//Constant area
         double constant = area / Math.pow(side, 2);
         return constant;
     }
 
-    public static double sidepoligonar(double area, int numberside) {//Side FROM Area
+    public static double sidepoligonar(double area, int numberside) {//Side
         double side;
         switch (numberside) {
             case 5:
@@ -1067,7 +1097,7 @@ public static double areaan(double radius1, double radius2) {//Area
     }
 //Rhombus
 
-    public static double radiusrho(double diagonal1, double diagonal2) {//Radius circle INSCRIBED
+    public static double radiusrho(double diagonal1, double diagonal2) {//Radius circle inscribed
         double radius = (diagonal1 * diagonal2) / (2 * Math.sqrt(Math.pow(diagonal1, 2) + Math.pow(diagonal2, 2)));
         return radius;
     }
@@ -1124,7 +1154,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return base;
     }
 
-    public static double perimetertrap(double base1, double base2, double height, double diagonal) {//Perimeter TRAPEZOID
+    public static double perimetertrap(double base1, double base2, double height, double diagonal) {//Perimeter
         double perimeter = base1 + base2 + height + diagonal;
         return perimeter;
     }
@@ -1155,7 +1185,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return area;
     }
 
-    public static double radctr(double base, double diagonal, double side) {//radius circle circumscribed to trapezoid
+    public static double radctr(double base, double diagonal, double side) {//Radius circle circumscribed
         double s = (base * diagonal * side) / 2;
         double radius = (base * diagonal * side) / (4 * Math.sqrt(s * (s - base) * (s - diagonal) * (s - side)));
         return radius;
@@ -1172,7 +1202,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return perimeter;
     }
 
-    public static double rcitr(double base1, double base2) {//Radius circle inscribed to rectangle trapezoid
+    public static double rcitr(double base1, double base2) {//Radius circle inscribed
         double radius = (base1 * base2) / (base1 + base2);
         return radius;
     }
@@ -1204,7 +1234,7 @@ public static double areaan(double radius1, double radius2) {//Area
         return median;
     }
 
-    public static double bisectortri(double side1, double side2, double side3, double perimeter) {//ANGLE BISECTOR
+    public static double bisectortri(double side1, double side2, double side3, double perimeter) {//Angle bisector
         double semiperimeter = perimeter / 2;
         double bisector = (2 / (side1 + side2)) * Math.sqrt(side1 * side2 * semiperimeter * (semiperimeter - side3));
         return bisector;
