@@ -1,0 +1,1266 @@
+public static double areaan(double radius1, double radius2) {//Area
+        double area = Math.PI * (Math.pow(radius2, 2) - Math.pow(radius1, 2));
+        return area;
+    }
+
+    public static double perann(double radius1, double radius2) {//Perimeter
+        double perimeter = 2 * Math.PI * (radius1 + radius2);
+        return perimeter;
+    }
+//Arc sector
+
+    public static double arcarea(double radius, double angle) {//Area
+        double valore = (Math.pow(radius, 2) * Math.toRadians(angle)) / 2;
+        return valore;
+    }
+
+    public static double arclength(double angle, double radius) {//Length
+        double valore = (angle * Math.PI * radius) / 180;
+        return valore;
+    }
+
+    public static double periarc(double radius, double angle) {//Perimeter
+        double valore = 2 * radius + (angle * Math.PI * radius) / 180;
+        return valore;
+    }
+
+    public static double charc(double radius, double angle) {//Chord
+        double chord = 2 * Math.PI * Math.sin(Math.toRadians(angle / 2));
+        return chord;
+    }
+    ancora da implementare //Circle
+
+
+    public static double circr(double radius) {//Circonference
+        double valore = 2 * Math.PI * radius;
+        return valore;
+    }
+
+    public static double circd(double diameter) {//Circonference
+        double valore = Math.PI * diameter;
+        return valore;
+    }
+
+    public static double circarea(double radius) {//Area
+        double area = Math.PI * Math.pow(radius, 2);
+        return area;
+    }
+
+    public static double radcirc(double circumference) {//Radius
+        double radius = circumference / (2 * Math.PI);
+        return radius;
+    }
+
+    public static double diacircle(double circumference) {//Diameter
+        double diameter = circumference / Math.PI;
+        return diameter;
+    }
+
+    public static double diacirc(double radius) {//Diameter
+        double diameter = radius * 2;
+        return diameter;
+    }
+//Circular Sector
+
+    public static double arcisec(double radius, double angle) {//Area
+        double area = (Math.pow(radius, 2) * angle) / 2;
+        return area;
+    }
+
+    public static double leang(double radius, double angle) {//Length
+        double length = radius * Math.toRadians(angle);
+        return length;
+    }
+
+    public static double chcise(double radius, double angle) {//Chord
+        double chord = 2 * radius * Math.sin(Math.toRadians(angle / 2));
+        return chord;
+    }
+
+//Ellips
+    public static double distfocus(double semixe1, double semixe2) {//Distace focus to center
+        double focus = Math.sqrt(Math.pow(semixe1, 2) - Math.pow(semixe2, 2));
+        return focus;
+    }
+
+    public static double ecceell(double semixe1, double semixe2) {//Eccentricity
+        double eccentricity = (Math.sqrt(Math.pow(semixe1, 2) - Math.pow(semixe2, 2))) / semixe1;
+        return eccentricity;
+    }
+
+    public static double areaellipse(double semixe1, double semixe2) {//Area
+        double areaellipse = Math.PI * semixe1 * semixe2;
+        return areaellipse;
+    }
+
+    public static double perimell(double semixe1, double semixe2) {//Perimeter
+        double perimeter = 2 * Math.PI * Math.sqrt((Math.pow(semixe1, 2) + Math.pow(semixe2, 2)) / 2);
+        return perimeter;
+    }
+
+//Hyperbolic sector
+    public static double arhys(double b, double x, double a) {//Area
+        double area = x * ((b / a) * Math.sqrt(Math.pow(x, 2) - Math.pow(a, 2))) - a * b * Math.pow(Math.cosh(x / a), -1);
+        return area;
+    }
+
+    public static double ehys(double b, double x, double a) {//Eccentricity
+        double eccentricity = Math.sqrt((Math.pow(a, 2) + Math.pow(b, 2)) / a);
+        return eccentricity;
+    }
+
+    public static double lhys(double b, double x, double a) {//Lenght
+        double length = (Math.pow(x, 2) - Math.pow(a, 2)) / (Math.pow(x, 2) - Math.pow((1 / ehys(b, x, a)) * a, 2));
+        return length;
+    }
+//Kite
+
+    public static double kitper(double side1, double side2) {
+        double perimeter = side1 * 2 + side2 * 2;
+        return perimeter;
+    }
+
+    public static double kitsi(double perimeter, double side) {//Side
+        double side2 = (perimeter - side * 2) / 2;
+        return side2;
+    }
+
+    public static double kitar(double diagonal1, double diagonal2) {
+        double area = (diagonal1 * diagonal2) / 2;
+        return area;
+    }
+
+    public static double kitdiag(double side1, double side2, double height) {
+        double diagonal = Math.sqrt(Math.pow(side1, 2) - Math.pow(height / 2, 2)) + Math.sqrt(Math.pow(side2, 2) - Math.pow(height / 2, 2));
+        return diagonal;
+    }
+
+    public static double kitaran(double side1, double side2, double angle) {
+        double area = side1 * side2 * Math.sin(Math.toRadians(angle));
+        return area;
+    }
+
+    public static double kitdi(double diagonal, double area) {
+        double diagonal2 = (area * 2) / diagonal;
+        return diagonal2;
+    }
+
+//Parabolic arch
+    public static double areparar(double height, double chord) {//Area
+        double area = 2 / 3 * height * chord;
+        return area;
+    }
+
+    public static double lepararc(double height, double chord) {//Length
+        double val = Math.sqrt(Math.pow(chord, 2) + 16 * Math.pow(height, 2));
+        double length = 1 / 2 * val + Math.pow(chord, 2) / (8 * height) * Math.log((4 * height + val) / chord);
+        return length;
+    }
+//Regular polygon incircle or outcircle
+
+    public static double radciinpol(double side, double nside) {//Radius circle inscribed
+        double radius = side / (2 * Math.tan(Math.PI / nside));
+        return radius;
+    }
+
+    public static double arciinpol(double side, double nside) {//Area circle inscribed
+        double area = (Math.PI * Math.pow(side, 2)) / (4 * Math.pow(Math.tan(Math.PI / nside), 2));
+        return area;
+    }
+
+    public static double arpolinpol(double side, double nside, double radius) {//Area polygon circumscribed
+        double area = 1 / 2 * nside * side * radius;
+        return area;
+    }
+
+    public static double arpolinps(double side, double nside) {//Area polygon circumscribed
+        double area = (nside * Math.pow(side, 2)) / (4 * Math.tan(Math.PI / nside));
+        return area;
+    }
+
+    public static double spoin(double radius, double nside) {//Side polygon inscribed
+        double side = 2 * radius * Math.sin(Math.PI / nside);
+        return side;
+    }
+
+    public static double arpolin(double nside, double radius) {//Area polygon inscribed
+        double area = 1 / 2 * nside * Math.pow(radius, 2) * Math.sin(2 * Math.PI / nside);
+        return area;
+    }
+
+    public static double spoout(double radius, double nside) {//Side polygon circumscribed
+        double side = 2 * radius * Math.tan(Math.PI / nside);
+        return side;
+    }
+
+    public static double arpolout(double nside, double side, double radius) {//Area polygon circumscribed
+        double area = 1 / 2 * nside * side * radius;
+        return area;
+    }
+
+    public static double radcircp(double side, double apothem) {//Radius circle circumscribed to polygon
+        double radius = Math.sqrt(Math.pow(apothem, 2) + Math.pow(side / 2, 2));
+        return radius;
+    }
+
+    public static double aprpol(double nside, double circumradius) {//Apothem
+        double radius = circumradius * Math.cos(Math.PI / nside);
+        return radius;
+    }
+
+    public static double aprpols(double side, double nside) {
+        double radius = (side / 2) * (Math.tan((Math.PI * (nside - 2)) / (2 * nside)));
+        return radius;
+    }
+//Parallelogram
+
+    public static double baseparall(double area, double height) {//Base
+        double base = area / height;
+        return base;
+    }
+
+    public static double diagonalparall(double side2, double side1, double height) {//Small diagonal
+        double diagonalparall = Math.sqrt(Math.pow(side2, 2) + Math.pow(side1, 2) - 2 * side2 * Math.sqrt(Math.pow(side1, 2) - Math.pow(height, 2)));
+        return diagonalparall;
+    }
+
+    public static double diagmajparall(double side2, double side1, double height) {//Long diagonal
+        double diagonalparall = Math.sqrt(Math.pow(side2, 2) + Math.pow(side1, 2) + 2 * side2 * Math.sqrt(Math.pow(side1, 2) - Math.pow(height, 2)));
+        return diagonalparall;
+    }
+
+    public static double hparal(double area, double side2) {//Height 2
+        double height2 = area / side2;
+        return height2;
+    }
+//Polygonal star
+    Octagram
+
+    public static double chordoct(double a, double b) {//Chord
+        double Chord = a + 2 * b;
+        return Chord;
+    }
+
+    public static double edleoc(double l) {//Edge length octagon
+        double length = (Math.sqrt(2) - 2) * l;
+        return length;
+    }
+
+    public static double spike(double l) {//Spike
+        double length = ((2 - Math.sqrt(2)) / 2) * l;
+        return length;
+    }
+
+    public static double diagonal(double a) {//Diagonal
+        double diagonal = Math.sqrt(4) + 2 * Math.sqrt(2) * a;
+        return diagonal;
+    }
+
+    public static double chedleoc(double a) {//Chord from edge length
+        double chord = (1 + Math.sqrt(2)) * a;
+        return chord;
+    }
+
+    public static double perocta(double b) {//Perimeter
+        double perimeter = 16 * b;
+        return perimeter;
+    }
+
+    public static double areaoct(double l, double b) {//Area
+        double area = Math.pow(l, 2) - 6 * Math.pow(b, 2);
+        return area;
+    }
+
+    public static double areaoctch(double b) {//Area
+        double area = (6 * Math.sqrt(2) - 8) * Math.pow(b, 2);
+        return area;
+    }
+    Star of Lakshmi
+
+    public static double stlakar(double side 
+        po) {
+        double area = 2 * (Math.sqrt() - 1) * Math.pow(a, 2);
+        return area;
+    }
+//Quadrilateral inscribed in a circle
+
+    public static double aquincir(double side1, double side2, double side3, double side4) {//Area
+        double semiperimeter = (side1 + side2 + side3 + side4) / 2;
+        double area = Math.sqrt((semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3) * (semiperimeter - side4));
+        return area;
+    }
+
+    public static double pequad(double side1, double side2, double side3, double side4) {//Perimeter
+        double perimeter = side1 + side2 + side3 + side4;
+        return perimeter;
+    }
+//Quadrilateral
+
+    public static double arqua(double side1, double side2, double side3, double side4, double angle1, double angle2) {//Area
+        double semiperimeter = (side1 + side2 + side3 + side4) / 2;
+        double area = Math.sqrt((semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3) * (semiperimeter - side4) - side1 * side2 * side3 * side4 * Math.pow(Math.cos(Math.toRadians((angle1 + angle2) / 2)), 2));
+        return area;
+    }
+//Rectangle
+
+    public static double perrect(double side1, double side2) {//Perimeter
+        double perimeter = (side1 + side2) * 2;
+        return perimeter;
+    }
+
+    public static double siderect(double perimeter, double side) {//Side
+        double side2 = (perimeter - (2 * side)) / 2;
+        return side2;
+    }
+
+    public static double siderectdi(double diagonal, double side1) {//Side
+        double side = Math.sqrt(Math.pow(diagonal, 2) - Math.pow(side1, 2));
+        return side;
+    }
+
+    public static double diagonalrec(double side1, double side2) {//Diagonal
+        double diagonal = Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2));
+        return diagonal;
+    }
+
+    public static double arearect(double side1, double side2) {//Area
+        double area = side1 * side2;
+        return area;
+    }
+
+    public static double siderec(double area, double side2) {//Side
+        double side = area / side2;
+        return side;
+    }
+//Regular polygon
+
+    public static double perimeterpolreg(double side, int number) {//Perimeter
+        double perimeter = side * number;
+        return perimeter;
+    }
+
+    public static double perimeterpoligon(double area, double apothem) {//Perimeter
+        double perimeter = area / apothem;
+        return perimeter;
+    }
+
+    public static double arpolsns(double side, double nside) {
+        double area = (nside * Math.pow(side, 2)) / (5 * Math.tan(Math.toRadians(180 / nside)));
+        return area;
+    }
+
+    public static double spolreg(double area, double nside) {//Side BY Area AND NUMBER OF Side
+        double side = Math.sqrt(4 * area * Math.tan(Math.toRadians(Math.PI / nside)) / nside);
+        return side;
+    }
+
+    public static double sidepoligon(double perimeter, int number) {//Side
+        double side = perimeter / number;
+        return side;
+    }
+
+    public static double apothempoligon(double side, int numberside) {//Apothem
+        double apothem;
+        switch (numberside) {
+            case 5:
+                apothem = numberside * 0.68819096;
+                return apothem;
+
+            case 6:
+                apothem = numberside * 0.866025403;
+                return apothem;
+
+            case 7:
+                apothem = numberside * 1.0382607;
+                return apothem;
+
+            case 8:
+                apothem = numberside * 1.20710678;
+                return apothem;
+
+            case 9:
+                apothem = numberside * 1.37373871;
+                return apothem;
+
+            case 10:
+                apothem = numberside * 1.53884177;
+                return apothem;
+
+            case 11:
+                apothem = numberside * 1.70284362;
+                return apothem;
+
+            case 12:
+                apothem = numberside * 1.8660254;
+                return apothem;
+
+            case 13:
+                apothem = numberside * 2.02857974;
+                return apothem;
+
+            case 14:
+                apothem = numberside * 2.19064313;
+                return apothem;
+
+            case 15:
+                apothem = numberside * 2.35231504;
+                return apothem;
+
+            case 16:
+                apothem = numberside * 2.51366974;
+                return apothem;
+
+            case 17:
+                apothem = numberside * 2.67476374;
+                return apothem;
+
+            case 18:
+                apothem = numberside * 2.8356409;
+                return apothem;
+
+            case 19:
+                apothem = numberside * 2.99633571;
+                return apothem;
+
+            case 20:
+                apothem = numberside * 3.15687574;
+                return apothem;
+
+            case 21:
+                apothem = numberside * 3.31728324;
+                return apothem;
+
+            case 22:
+                apothem = numberside * 3.47757637;
+                return apothem;
+
+            case 23:
+                apothem = numberside * 3.63777014;
+                return apothem;
+
+            case 24:
+                apothem = numberside * 3.79787704;
+                return apothem;
+
+            case 25:
+                apothem = numberside * 3.95790752;
+                return apothem;
+
+            case 26:
+                apothem = numberside * 4.11787046;
+                return apothem;
+
+            case 27:
+                apothem = numberside * 4.27777336;
+                return apothem;
+
+            case 28:
+                apothem = numberside * 4.43762271;
+                return apothem;
+
+            case 29:
+                apothem = numberside * 4.59742405;
+                return apothem;
+
+            case 30:
+                apothem = numberside * 4.75718219;
+                return apothem;
+
+            case 31:
+                apothem = numberside * 4.91690135;
+                return apothem;
+
+            case 32:
+                apothem = numberside * 5.07658516;
+                return apothem;
+
+            case 33:
+                apothem = numberside * 5.23623686;
+                return apothem;
+
+            case 34:
+                apothem = numberside * 5.39585929;
+                return apothem;
+
+            case 35:
+                apothem = numberside * 5.55545494;
+                return apothem;
+
+            case 36:
+                apothem = numberside * 5.71502612;
+                return apothem;
+
+            case 37:
+                apothem = numberside * 5.87457474;
+                return apothem;
+
+            case 38:
+                apothem = numberside * 6.03410258;
+                return apothem;
+
+            case 39:
+                apothem = numberside * 6.1936113;
+                return apothem;
+
+            case 40:
+                apothem = numberside * 6.35310232;
+                return apothem;
+        }
+
+        return 0;
+    }
+
+    public static double areapoligon(double side, int numberside) {//Area REGULAR polygon
+        double area;
+        switch (numberside) {
+            case 5:
+                area = Math.pow(numberside, 2) * 1.7204774;
+                return area;
+
+            case 6:
+                area = Math.pow(numberside, 2) * 2.59807621;
+                return area;
+
+            case 7:
+                area = Math.pow(numberside, 2) * 3.63391244;
+                return area;
+
+            case 8:
+                area = Math.pow(numberside, 2) * 4.82842712;
+                return area;
+
+            case 9:
+                area = Math.pow(numberside, 2) * 6.18182418;
+                return area;
+
+            case 10:
+                area = Math.pow(numberside, 2) * 7.69420883;
+                return area;
+
+            case 11:
+                area = Math.pow(numberside, 2) * 9.36563988;
+                return area;
+
+            case 12:
+                area = Math.pow(numberside, 2) * 11.1961524;
+                return area;
+
+            case 13:
+                area = Math.pow(numberside, 2) * 13.1857683;
+                return area;
+
+            case 14:
+                area = Math.pow(numberside, 2) * 15.3345019;
+                return area;
+
+            case 15:
+                area = Math.pow(numberside, 2) * 17.6423628;
+                return area;
+
+            case 16:
+                area = Math.pow(numberside, 2) * 20.1093579;
+                return area;
+
+            case 17:
+                area = Math.pow(numberside, 2) * 22.7354918;
+                return area;
+
+            case 18:
+                area = Math.pow(numberside, 2) * 25.5207681;
+                return area;
+
+            case 19:
+                area = Math.pow(numberside, 2) * 28.4651893;
+                return area;
+
+            case 20:
+                area = Math.pow(numberside, 2) * 31.5687574;
+                return area;
+
+            case 21:
+                area = Math.pow(numberside, 2) * 34.831474;
+                return area;
+
+            case 22:
+                area = Math.pow(numberside, 2) * 38.25334;
+                return area;
+
+            case 23:
+                area = Math.pow(numberside, 2) * 41.8343566;
+                return area;
+
+            case 24:
+                area = Math.pow(numberside, 2) * 45.5745245;
+                return area;
+
+            case 25:
+                area = Math.pow(numberside, 2) * 49.4738441;
+                return area;
+
+            case 26:
+                area = Math.pow(numberside, 2) * 53.532316;
+                return area;
+
+            case 27:
+                area = Math.pow(numberside, 2) * 57.7499403;
+                return area;
+
+            case 28:
+                area = Math.pow(numberside, 2) * 62.1267179;
+                return area;
+
+            case 29:
+                area = Math.pow(numberside, 2) * 66.6626487;
+                return area;
+
+            case 30:
+                area = Math.pow(numberside, 2) * 71.3577329;
+                return area;
+
+            case 31:
+                area = Math.pow(numberside, 2) * 76.211971;
+                return area;
+
+            case 32:
+                area = Math.pow(numberside, 2) * 81.2253626;
+                return area;
+
+            case 33:
+                area = Math.pow(numberside, 2) * 86.3979083;
+                return area;
+
+            case 34:
+                area = Math.pow(numberside, 2) * 91.729608;
+                return area;
+
+            case 35:
+                area = Math.pow(numberside, 2) * 97.2284615;
+                return area;
+
+            case 36:
+                area = Math.pow(numberside, 2) * 102.87047;
+                return area;
+
+            case 37:
+                area = Math.pow(numberside, 2) * 108.679633;
+                return area;
+
+            case 38:
+                area = Math.pow(numberside, 2) * 114.647949;
+                return area;
+
+            case 39:
+                area = Math.pow(numberside, 2) * 128.77542;
+                return area;
+
+            case 40:
+                area = Math.pow(numberside, 2) * 127.062047;
+                return area;
+        }
+        return 0;
+    }
+
+    public static double arpol(double sperim, double apothem) {//Area
+        double area = sperim * apothem;
+        return area;
+    }
+
+    public static double apothem(double area, double perimeter) {//Apothem
+        double apothem = (2 * area) / perimeter;
+        return apothem;
+    }
+
+    public static double perimeter(double area, double apothem) {//Perimeter
+        double perimeter = area / apothem;
+        return perimeter;
+    }
+
+    public static double sidepentagon(double radius) {//Side pentagon
+        double side = radius * (Math.sqrt(10 - 2 * Math.sqrt(5)) / 2);
+        return side;
+    }
+
+    public static double apothempentagon(double radius) {//Apothem pentagon
+        double apothem = radius * ((Math.sqrt(5) + 1) / 4);
+        return apothem;
+    }
+
+    public static double areapentagon(double radius) {//Area pentagon
+        double area = Math.pow(radius, 2) * ((3 * Math.sqrt(3)) / 2);
+        return area;
+    }
+
+    public static double apohex(double radius) {//Apothem hexagon
+        double apothem = radius * (Math.sqrt(3) / 2);
+        return apothem;
+    }
+
+    public static double areahex(double radius) {//Area hexagon
+        double area = Math.pow(radius, 2) * 2 * Math.sqrt(2);
+        return area;
+    }
+
+    public static double octaside(double radius) {// Octagon side
+        double side = radius * Math.sqrt(2 - Math.sqrt(2));
+        return side;
+    }
+
+    public static double octaapo(double radius) {// Octagon apothem
+        double apothem = radius * (Math.sqrt(2 + Math.sqrt(2)) / 2);
+        return apothem;
+    }
+
+    public static double octarea(double radius) {//Octagon area
+        double area = Math.pow(radius, 2) * 2 * Math.sqrt(2);
+        return area;
+    }
+
+    public static double decaside(double radius) {//Side of decagon
+        double area = radius * ((Math.sqrt(5) - 1) / 2);
+        return area;
+    }
+
+    public static double decapothem(double radius) {//Apothem OF DECAGON
+        double apothem = radius * ((Math.sqrt(10) + 2 * Math.sqrt(5)) / 4);
+        return apothem;
+    }
+
+    public static double decarea(double radius) {//Area OF DECAGON
+        double area = Math.pow(radius, 2) * ((5 * Math.sqrt(10 - 2 * Math.sqrt(5))) / 4);
+        return area;
+    }
+
+    public static double sidedodec(double radius) {//Side OF DODECAGON
+        double side = radius * ((Math.sqrt(6) - Math.sqrt(2)) / 2);
+        return side;
+    }
+
+    public static double apododec(double radius) {//Apothem OF DODECAGON
+        double apothem = radius * ((Math.sqrt(6) + Math.sqrt(2)) / 4);
+        return apothem;
+    }
+
+    public static double areadodec(double radius) {//Area OF DODECAGON
+        double area = 3 * Math.pow(radius, 2);
+        return area;
+    }
+
+    public static double radiuspol(double side, int numside) {//Radius circle CIRCOSCRIPTE
+        double radius = side / (2 * Math.sin(Math.toRadians(180 / numside)));
+        return radius;
+    }
+
+    public static double apopolside(double side, int numside) {//Apothem circle CIRCOSCRIPTE  FROM Side AND NUMSide
+        double apothem = side / 2 * (Math.tan(Math.toRadians(90 - 180 / numside)));
+        return apothem;
+    }
+
+    public static double apopolradius(double radius, double side, int numside) {//Apothem circle CIRCOSCRIPTE FROM Radius AND NUMSide
+        double apothem = radius * Math.cos(Math.toRadians(180 / numside));
+        return apothem;
+    }
+
+    public static double sidepoligonapo(double area, int numberside) {//Side REGULAR polygon BY Apothem
+        double side;
+        switch (numberside) {
+
+            case 5:
+                side = Math.sqrt(area / 1.7204774);
+                return side;
+
+            case 6:
+                side = Math.sqrt(area / 2.59807621);
+                return side;
+
+            case 7:
+                side = Math.sqrt(area / 3.63391244);
+                return side;
+
+            case 8:
+                side = Math.sqrt(area / 4.82842712);
+                return side;
+
+            case 9:
+                side = Math.sqrt(area / 6.18182418);
+                return side;
+
+            case 10:
+                side = Math.sqrt(area / 7.69420883);
+                return side;
+
+            case 11:
+                side = Math.sqrt(area / 9.36563988);
+                return side;
+
+            case 12:
+                side = Math.sqrt(area / 11.1961524);
+                return side;
+
+            case 13:
+                side = Math.sqrt(area / 13.1857683);
+                return side;
+
+            case 14:
+                side = Math.sqrt(area / 15.3345019);
+                return side;
+
+            case 15:
+                side = Math.sqrt(area / 17.6423628);
+                return side;
+
+            case 16:
+                side = Math.sqrt(area / 20.1093579);
+                return side;
+
+            case 17:
+                side = Math.sqrt(area / 22.7354918);
+                return side;
+
+            case 18:
+                side = Math.sqrt(area / 25.5207681);
+                return side;
+
+            case 19:
+                side = Math.sqrt(area / 28.4651893);
+                return side;
+
+            case 20:
+                side = Math.sqrt(area / 31.5687574);
+                return side;
+
+            case 21:
+                side = Math.sqrt(area / 34.831474);
+                return side;
+
+            case 22:
+                side = Math.sqrt(area / 38.25334);
+                return side;
+
+            case 23:
+                side = Math.sqrt(area / 41.8343566);
+                return side;
+
+            case 24:
+                side = Math.sqrt(area / 45.5745245);
+                return side;
+
+            case 25:
+                side = Math.sqrt(area / 49.4738441);
+                return side;
+
+            case 26:
+                side = Math.sqrt(area / 53.532316);
+                return side;
+
+            case 27:
+                side = Math.sqrt(area / 57.7499403);
+                return side;
+
+            case 28:
+                side = Math.sqrt(area / 62.1267179);
+                return side;
+
+            case 29:
+                side = Math.sqrt(area / 66.6626487);
+                return side;
+
+            case 30:
+                side = Math.sqrt(area / 71.3577329);
+                return side;
+
+            case 31:
+                side = Math.sqrt(area / 76.211971);
+                return side;
+
+            case 32:
+                side = Math.sqrt(area / 81.2253626);
+                return side;
+
+            case 33:
+                side = Math.sqrt(area / 86.3979083);
+                return side;
+
+            case 34:
+                side = Math.sqrt(area / 91.729608);
+                return side;
+
+            case 35:
+                side = Math.sqrt(area / 97.2284615);
+                return side;
+
+            case 36:
+                side = Math.sqrt(area / 102.87047);
+                return side;
+
+            case 37:
+                side = Math.sqrt(area / 108.679633);
+                return side;
+
+            case 38:
+                side = Math.sqrt(area / 114.647949);
+                return side;
+
+            case 39:
+                side = Math.sqrt(area / 128.77542);
+                return side;
+
+            case 40:
+                side = Math.sqrt(area / 127.062047);
+                return side;
+        }
+        return 0;
+    }
+
+    public static double constantareapol(double area, double side) {//CONSTANT Area polygon
+        double constant = area / Math.pow(side, 2);
+        return constant;
+    }
+
+    public static double sidepoligonar(double area, int numberside) {//Side FROM Area
+        double side;
+        switch (numberside) {
+            case 5:
+                side = Math.sqrt(area / 1.7204774);
+                return side;
+
+            case 6:
+                side = Math.sqrt(area / 2.59807621);
+                return side;
+
+            case 7:
+                side = Math.sqrt(area / 3.63391244);
+                return side;
+
+            case 8:
+                side = Math.sqrt(area / 4.82842712);
+                return side;
+
+            case 9:
+                side = Math.sqrt(area / 6.18182418);
+                return side;
+
+            case 10:
+                side = Math.sqrt(area / 7.69420883);
+                return side;
+
+            case 11:
+                side = Math.sqrt(area / 9.36563988);
+                return side;
+
+            case 12:
+                side = Math.sqrt(area / 11.1961524);
+                return side;
+
+            case 13:
+                side = Math.sqrt(area / 13.1857683);
+                return side;
+
+            case 14:
+                side = Math.sqrt(area / 15.3345019);
+                return side;
+
+            case 15:
+                side = Math.sqrt(area / 17.6423628);
+                return side;
+
+            case 16:
+                side = Math.sqrt(area / 20.1093579);
+                return side;
+
+            case 17:
+                side = Math.sqrt(area / 22.7354918);
+                return side;
+
+            case 18:
+                side = Math.sqrt(area / 25.5207681);
+                return side;
+
+            case 19:
+                side = Math.sqrt(area / 28.4651893);
+                return side;
+
+            case 20:
+                side = Math.sqrt(area / 31.5687574);
+                return side;
+
+            case 21:
+                side = Math.sqrt(area / 34.831474);
+                return side;
+
+            case 22:
+                side = Math.sqrt(area / 38.25334);
+                return side;
+
+            case 23:
+                side = Math.sqrt(area / 41.8343566);
+                return side;
+
+            case 24:
+                side = Math.sqrt(area / 45.5745245);
+                return side;
+
+            case 25:
+                side = Math.sqrt(area / 49.4738441);
+                return side;
+
+            case 26:
+                side = Math.sqrt(area / 53.532316);
+                return side;
+
+            case 27:
+                side = Math.sqrt(area / 57.7499403);
+                return side;
+
+            case 28:
+                side = Math.sqrt(area / 62.1267179);
+                return side;
+
+            case 29:
+                side = Math.sqrt(area / 66.6626487);
+                return side;
+
+            case 30:
+                side = Math.sqrt(area / 71.3577329);
+                return side;
+
+            case 31:
+                side = Math.sqrt(area / 76.211971);
+                return side;
+
+            case 32:
+                side = Math.sqrt(area / 81.2253626);
+                return side;
+
+            case 33:
+                side = Math.sqrt(area / 86.3979083);
+                return side;
+
+            case 34:
+                side = Math.sqrt(area / 91.729608);
+                return side;
+
+            case 35:
+                side = Math.sqrt(area / 97.2284615);
+                return side;
+
+            case 36:
+                side = Math.sqrt(area / 102.87047);
+                return side;
+
+            case 37:
+                side = Math.sqrt(area / 108.679633);
+                return side;
+
+            case 38:
+                side = Math.sqrt(area / 114.647949);
+                return side;
+
+            case 39:
+                side = Math.sqrt(area / 128.77542);
+                return side;
+
+            case 40:
+                side = Math.sqrt(area / 127.062047);
+                return side;
+        }
+        return 0;
+    }
+//Rhombus
+
+    public static double radiusrho(double diagonal1, double diagonal2) {//Radius circle INSCRIBED
+        double radius = (diagonal1 * diagonal2) / (2 * Math.sqrt(Math.pow(diagonal1, 2) + Math.pow(diagonal2, 2)));
+        return radius;
+    }
+
+    public static double heightromb(double area, double side) {//Height
+        double height = area / side;
+        return height;
+    }
+
+    public static double diagonalomb(double diagonal1, double side) {//Diagonal
+        double diagonal = 2 * Math.sqrt(Math.pow(side, 2) - Math.pow(diagonal1 / 2, 2));
+        return diagonal;
+    }
+
+    public static double area(double diagonal1, double diagonal2) {//Area
+        double area = (diagonal1 * diagonal2) / 2;
+        return area;
+    }
+
+    public static double sidediag(double diagonal1, double diagonal2) {//Side
+        double side = Math.sqrt(Math.pow(diagonal1 / 2, 2) + Math.pow(diagonal2 / 2, 2));
+        return side;
+    }
+
+    public static double side(double area, double radius) {//Side
+        double side = area / (radius * 2);
+        return side;
+    }
+//Square
+
+    public static double areasqr(double side) {//Area
+        double area = Math.pow(side, 2);
+        return area;
+    }
+
+    public static double sidesqr(double diagonal) {//Side
+        double side = diagonal / Math.sqrt(2);
+        return side;
+    }
+
+    public static double diagsqr(double side) {//Diagonal
+        double diagonal = side * Math.sqrt(2);
+        return diagonal;
+    }
+
+    public static double diagsqrar(double area) {//Diagonal
+        double diagonal = Math.sqrt(2 * area);
+        return diagonal;
+    }
+//Trapezoid
+
+    public static double basetrapezoid(double diagonal, double height) {//Base
+        double base = Math.sqrt(Math.pow(diagonal, 2) - Math.pow(height, 2));
+        return base;
+    }
+
+    public static double perimetertrap(double base1, double base2, double height, double diagonal) {//Perimeter TRAPEZOID
+        double perimeter = base1 + base2 + height + diagonal;
+        return perimeter;
+    }
+
+    public static double areatrap(double base1, double base2, double height) {//Area
+        double area = ((base1 + base2) * height) / 2;
+        return area;
+    }
+
+    public static double diagtrapret(double base, double height) {//Diagonal
+        double diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2));
+        return diagonal;
+    }
+//Isosceles trapezoid
+
+    public static double diatrapiso(double base1, double base2, double height) {//Diagonal
+        double diagonal = Math.sqrt(base1 * base2 + Math.pow(height, 2));
+        return diagonal;
+    }
+
+    public static double heighttraiso(double side, double base1, double base2) {//Height
+        double height = Math.sqrt(Math.pow(side, 2) - Math.pow(((base1 - base2) / 2), 2));
+        return height;
+    }
+
+    public static double aristrp(double base1, double base2, double side) {//Area
+        double area = ((base1 + base2) / Math.abs(base2 - base1)) * Math.sqrt(base1 * base2 * (base1 - side) * (side - base2));
+        return area;
+    }
+
+    public static double radctr(double base, double diagonal, double side) {//radius circle circumscribed to trapezoid
+        double s = (base * diagonal * side) / 2;
+        double radius = (base * diagonal * side) / (4 * Math.sqrt(s * (s - base) * (s - diagonal) * (s - side)));
+        return radius;
+    }
+//Right trapezoid
+
+    public static double arigtr(double base, double height1, double height2) {//Area
+        double area = 1 / 2 * base * (height1 + height2);
+        return area;
+    }
+
+    public static double perigtr(double base, double height1, double height2) {//Perimeter
+        double perimeter = base + height1 + height2 + Math.sqrt(Math.pow(base, 2) + Math.pow(height1 - height2, 2));
+        return perimeter;
+    }
+
+    public static double rcitr(double base1, double base2) {//Radius circle inscribed to rectangle trapezoid
+        double radius = (base1 * base2) / (base1 + base2);
+        return radius;
+    }
+//Triangle
+
+    public static double areatriangle(double side, double height) {//Area
+        double area = (side * height) / 2;
+        return area;
+    }
+
+    public static double artrian(double side1, double side2, double side3) {//Area
+        double semper = (side1 + side2 + side3) / 2;
+        double area = Math.sqrt(semper * (semper - side1) * (semper - side2) * (semper - side3));
+        return area;
+    }
+
+    public static double heightri(double side, double area) {//Height
+        double height = 2 * area / side;
+        return height;
+    }
+
+    public static double radiustri(double perimeter, double area) {//Radius circle inscripte
+        double radius = 2 * area / perimeter;
+        return radius;
+    }
+
+    public static double medtri(double side1, double side2, double side3) {//Median
+        double median = 0.5 * Math.sqrt(2 * ((Math.pow(side1, 2) + Math.pow(side2, 2)) - Math.pow(side3, 2)));
+        return median;
+    }
+
+    public static double bisectortri(double side1, double side2, double side3, double perimeter) {//ANGLE BISECTOR
+        double semiperimeter = perimeter / 2;
+        double bisector = (2 / (side1 + side2)) * Math.sqrt(side1 * side2 * semiperimeter * (semiperimeter - side3));
+        return bisector;
+    }
+//Equilateral triangle
+
+    public static double heqtri(double side) {//Height
+        double height = (side * Math.sqrt(3)) / 2;
+        return height;
+    }
+
+    public static double medeqtr(double side1, double side2) {//Median
+        double median = (side1 + side2) / 2;
+        return median;
+    }
+//Isosceles triangle
+
+    public static double baseiso(double side, double height) {//Base
+        double base = (Math.sqrt(side + side)) / 2;
+        return base;
+    }
+
+    public static double heightiso(double side, double base) {//Height
+        double height = Math.sqrt(Math.pow(side, 2) - (Math.pow(base, 2) / 4));
+        return height;
+    }
+
+    public static double perimeteriso(double side, double base) {//Perimeter
+        double perimeter = side * 2 + base;
+        return perimeter;
+    }
+//Tight triangle
+
+    public static double perrgtr(double side1, double side2) {//Perimeter
+        double perimeter = side1 + side2 + hypotenuse(side1, side2);
+        return perimeter;
+    }
+
+    public static double hypotenuse(double side1, double side2) {//Hypotenuse
+        double hypoten = (Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2)));
+        return hypoten;
+    }
+//Scalene triangle
+
+    public static double areascalene(double side1, double side2, double side3, double perimeter) {//Area
+        double semiperimeter = perimeter / 2;
+        double area = Math.sqrt(semiperimeter * (semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3));
+        return area;
+    }
+
+    public static double hsctri(double side, double area) {//Height
+        double height = (2 * area) / side;
+        return height;
+    }
+
+    public static double persctr(double side1, double side2, double side3) {//Perimeter
+        double perimeter = side1 + side2 + side3;
+        return perimeter;
+    }
