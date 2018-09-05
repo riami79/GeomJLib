@@ -9,7 +9,7 @@ GeoCalc is distributed in the hope that it will be useful, but WITHOUT ANY WARRA
 You should have received a copy of the GNU General Public License along with GeoCalc. If not, see <http://www.gnu.org/licenses/>.*/
 //*************************************************************************************************************************************************************************************************************************************
 //Circular truncated cone
-    public static double lareactc(double radius1, double radius2, double height) {//LateralE ARE, radius1 radius great, radius2 radius little
+    public static double lareactc(double radius1, double radius2, double height) {//Lateral area, radius1 radius great, radius2 radius little
         double area = Math.PI * (radius1 + radius2) * Math.sqrt(Math.pow((radius1 - radius2), 2) + Math.pow(height, 2));
         return area;
     }
