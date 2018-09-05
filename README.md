@@ -8,3 +8,6 @@ The file Code3DV1.0 reports the version 1.0 of java code for the 3-D shapes.
 
 For the importation of library for the 2-D shapes write: import GeometricJ.*;
 
+For the importation of library for the 3-D shapes write: import GeometricJ3D.*;
+
+
